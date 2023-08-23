@@ -1,0 +1,33 @@
+import java.util.Random;
+
+class GPSLocation {
+    double latitude;
+    double longitude;
+
+    public GPSLocation(double latitude, double longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+}
+
+class GPSTracker {
+    GPSLocation getCurrentLocation() {
+        // Simulate generating GPS coordinates
+        Random random = new Random();
+        double latitude = 34.0522 + (random.nextDouble() - 0.5);
+        double longitude = -118.2437 + (random.nextDouble() - 0.5);
+        return new GPSLocation(latitude, longitude);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        GPSTracker gpsTracker = new GPSTracker();
+        
+        for (int i = 0; i < 10; i++) {
+            GPSLocation currentLocation = gpsTracker.getCurrentLocation();
+            System.out.println("Latitude: " + currentLocation.latitude + ", Longitude: " + currentLocation.longitude);
+        }
+    }
+}
+ 
